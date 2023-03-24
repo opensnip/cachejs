@@ -1,0 +1,56 @@
+{
+  "name": "@opensnip/cachejs",
+  "version": "1.0.0",
+  "description": "Fast and lightweight caching library for javascript",
+  "main": "index.mjs",
+  "type": "module",
+  "exports": {
+    "types": "./index.d.ts",
+    "node": {
+      "import": "./index.mjs",
+      "require": "./index.cjs"
+    },
+    "default": "./index.cjs"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opensnip/cachejs.git"
+  },
+  "keywords": [
+    "opensnip",
+    "cachejs",
+    "lru cache",
+    "mru cache",
+    "lfu cache",
+    "mfu cache",
+    "fifo cache",
+    "lifo cache",
+    "cache",
+    "nodejs",
+    "library"
+  ],
+  "author": "Rajkumar Dusad",
+  "license": "MIT",
+  "types": "./index.d.ts",
+  "bugs": {
+    "url": "https://github.com/opensnip/cachejs/issues"
+  },
+  "homepage": "https://github.com/opensnip/cachejs#readme",
+  "devDependencies": {
+    "jest": "^29.4.2"
+  },
+  "files": [
+    "src/",
+    "LICENSE",
+    "README.md",
+    "index.cjs",
+    "index.mjs",
+    "index.d.ts"
+  ]
+}
