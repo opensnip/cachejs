@@ -70,7 +70,7 @@ export default class FIFO {
     // Insert a new node at head
     const existingNode = this.#cache.get(key);
     // Update node data if node is already exists
-    if (existingNode instanceof Node) {
+    if (typeof existingNode !== "undefined") {
       existingNode.value = nodeValue;
     } else {
       // Remove node if cache is full
@@ -91,7 +91,7 @@ export default class FIFO {
 
       const node = this.#cache.get(key);
 
-      if (node instanceof Node) {
+      if (typeof node !== "undefined") {
         // Check node is live or not
         if (this.#isStale(node)) {
           this.delete(key);
@@ -118,7 +118,7 @@ export default class FIFO {
   delete(key) {
     const node = this.#cache.get(key);
 
-    if (node instanceof Node) {
+    if (typeof node !== "undefined") {
       this.#linkedList.delete(node);
       // Delete node
       this.#cache.delete(key);
@@ -126,7 +126,7 @@ export default class FIFO {
   }
 
   #evict() {
-    if (this.#linkedList.tail == null) return;
+    if (this.#linkedList.tail === null) return;
     if (this.length !== this.#maxLength) return;
     this.delete(this.#linkedList.tail.value.key);
   }
@@ -140,7 +140,7 @@ export default class FIFO {
   has(key) {
     const node = this.#cache.get(key);
 
-    if (node instanceof Node) {
+    if (typeof node !== "undefined") {
       // Check node is live or not
       if (this.#isStale(node)) {
         this.delete(key);

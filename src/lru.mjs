@@ -70,7 +70,7 @@ export default class LRU {
     // Insert a new node at head
     const existingNode = this.#cache.get(key);
     // Update node data if node is already exists
-    if (existingNode instanceof Node) {
+    if (typeof existingNode !== "undefined") {
       existingNode.value = nodeValue;
       // Move current node to the head
       this.#linkedList.setHead(existingNode);
@@ -93,7 +93,7 @@ export default class LRU {
 
       const node = this.#cache.get(key);
 
-      if (node instanceof Node) {
+      if (typeof node !== "undefined") {
         // Check node is live or not
         if (this.#isStale(node)) {
           this.delete(key);
@@ -123,7 +123,7 @@ export default class LRU {
   delete(key) {
     const node = this.#cache.get(key);
 
-    if (node instanceof Node) {
+    if (typeof node !== "undefined") {
       this.#linkedList.delete(node);
       // Delete node
       this.#cache.delete(key);
@@ -131,7 +131,7 @@ export default class LRU {
   }
 
   #evict() {
-    if (this.#linkedList.tail == null) return;
+    if (this.#linkedList.tail === null) return;
     if (this.length !== this.#maxLength) return;
     this.delete(this.#linkedList.tail.value.key);
   }
@@ -145,7 +145,7 @@ export default class LRU {
   has(key) {
     const node = this.#cache.get(key);
 
-    if (node instanceof Node) {
+    if (typeof node !== "undefined") {
       // Check node is live or not
       if (this.#isStale(node)) {
         this.delete(key);

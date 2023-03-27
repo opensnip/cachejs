@@ -124,8 +124,8 @@ module.exports = class LinkedList {
     }
     tmpRight.prev = leftNode.prev;
     tmpRight.next = leftNode.next;
-    if (leftNode == this.#head) this.#head = tmpRight;
-    if (leftNode == this.#tail) this.#tail = tmpRight;
+    if (leftNode === this.#head) this.#head = tmpRight;
+    if (leftNode === this.#tail) this.#tail = tmpRight;
 
     // Replace right node with left node
     let tmpLeft = new Node(leftNode.value);
@@ -137,8 +137,8 @@ module.exports = class LinkedList {
     }
     tmpLeft.prev = rightNode.prev;
     tmpLeft.next = rightNode.next;
-    if (rightNode == this.#head) this.#head = tmpLeft;
-    if (rightNode == this.#tail) this.#tail = tmpLeft;
+    if (rightNode === this.#head) this.#head = tmpLeft;
+    if (rightNode === this.#tail) this.#tail = tmpLeft;
 
     delete leftNode.next;
     delete leftNode.prev;
@@ -150,7 +150,7 @@ module.exports = class LinkedList {
   }
 
   deleteHead() {
-    if (this.#head == null) return;
+    if (this.#head === null) return;
     if (this.#head.next != null) {
       this.#head.next.prev = null;
     }
@@ -160,7 +160,7 @@ module.exports = class LinkedList {
   }
 
   deleteTail() {
-    if (this.#tail == null) return;
+    if (this.#tail === null) return;
     if (this.#tail.prev != null) {
       this.#tail.prev.next = null;
     }
@@ -170,9 +170,6 @@ module.exports = class LinkedList {
   }
 
   delete(node) {
-    if (!(node instanceof Node)) {
-      throw new TypeError("node should be a valid Node instance");
-    }
     this.detach(node);
     delete node.prev;
     delete node.next;

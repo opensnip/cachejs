@@ -126,7 +126,7 @@ module.exports = class Cache {
 
     this.#config.intervalId = setInterval(
       function (cache) {
-        if (cache.length == 0) return;
+        if (cache.length === 0) return;
         cache.forEach(function (data) {
           // Automatically invalidate expired cache
         });
