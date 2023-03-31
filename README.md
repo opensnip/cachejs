@@ -77,8 +77,8 @@ Where options are the following:
 - `evictionPolicy` : eviction policy is can be any valid cache eviction policy, supported eviction policy are FIFO, LIFO, LRU, MRU
 - `maxLength` : max length is a cache max length, max length is a positive integer value. The default value is 250, if the value is 0 then it will not check the max length.
 - `ttl` : is cache expires time in milliseconds, the default value is 0 and if value if 0 it will not check the ttl.
-- `interval` : interval is the time interval in milliseconds, after every interval all the expired items are automatically removed. Default value is 60000 and if value is 0 the it will not removes expired items automatically, but don't worry expired items are treated as missing, and deleted when they are fetched.
-- `enableInterval` : enableInterval is a boolean value that is used to enable and disable the interval, the default value is false and if value is explicitly set false then it will not run the interval even if the interval time is set.
+- `interval` : interval is the time interval in milliseconds, after every interval all the expired items are automatically removed. Default value is 60000 and if value is 0 then it will not removes expired items automatically, but don't worry expired items are treated as missing, and deleted when they are fetched.
+- `enableInterval` : enableInterval is a boolean value that is used to enable and disable the interval, the default value is false and if value is explicitly set to false then it will not run the interval even if the interval time is set.
 
 Cachejs support TTL, but it is not a TTL cache, and also does not make strong TTL guarantees. When ttl interval is set, expired items are removed from cache periodically.
 
