@@ -8,7 +8,7 @@ module.exports = class Cache {
   #config = {
     evictionPolicy: "LRU",
     ttl: 0,
-    maxLength: 0,
+    maxLength: 250,
     interval: 0,
     intervalId: null,
     enableInterval: false,
@@ -54,7 +54,7 @@ module.exports = class Cache {
 
     options.evictionPolicy = options.evictionPolicy || "LRU";
     options.maxLength =
-      typeof options.maxLength === "number" ? options.maxLength : 1000;
+      typeof options.maxLength === "number" ? options.maxLength : 250;
     options.ttl = typeof options.ttl === "number" ? options.ttl : 0;
     if (
       typeof options.interval === "number" &&

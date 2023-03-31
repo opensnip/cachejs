@@ -5,7 +5,7 @@ export default class MRU {
   #linkedList = null;
   #cache = null;
   #ttl = 0;
-  #maxLength = 0;
+  #maxLength = 250;
 
   constructor(options = {}) {
     if (
@@ -32,7 +32,7 @@ export default class MRU {
     }
 
     options.maxLength =
-      typeof options.maxLength === "number" ? options.maxLength : 1000;
+      typeof options.maxLength === "number" ? options.maxLength : 250;
     options.ttl = typeof options.ttl === "number" ? options.ttl : 0;
 
     this.#linkedList = new LinkedList();
