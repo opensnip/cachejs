@@ -1,5 +1,4 @@
 import LinkedList from "./linkedlist/index.mjs";
-import Node from "./linkedlist/node.mjs";
 
 export default class LRU {
   #linkedList = null;

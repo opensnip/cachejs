@@ -1,5 +1,4 @@
 const LinkedList = require("./linkedlist/index.cjs");
-const Node = require("./linkedlist/node.cjs");
 
 module.exports = class LIFO {
   #linkedList = null;

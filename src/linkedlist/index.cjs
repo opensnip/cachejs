@@ -140,12 +140,8 @@ module.exports = class LinkedList {
     if (rightNode === this.#head) this.#head = tmpLeft;
     if (rightNode === this.#tail) this.#tail = tmpLeft;
 
-    delete leftNode.next;
-    delete leftNode.prev;
-    delete leftNode.value;
-    delete rightNode.next;
-    delete rightNode.prev;
-    delete rightNode.value;
+    leftNode = null;
+    rightNode = null;
     return [tmpLeft, tmpRight];
   }
 
@@ -171,9 +167,7 @@ module.exports = class LinkedList {
 
   delete(node) {
     this.detach(node);
-    delete node.prev;
-    delete node.next;
-    delete node.value;
+    node = null;
   }
 
   detach(node) {
